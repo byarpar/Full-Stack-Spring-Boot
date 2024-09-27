@@ -95,11 +95,11 @@ This project has been a collaborative effort involving a diverse team with vario
 
 ### Team Members
 
-- Byar Par:
-- Kaung Myat Thu:
-- Seng Nu Pan:
-- Kayan Win Ji:
-- Hsu Thadar:
+- Byar Par
+- Kaung Myat Thu
+- Seng Nu Pan
+- Kayan Win Ji
+- Hsu Thadar
   
 ### Collaboration
 
