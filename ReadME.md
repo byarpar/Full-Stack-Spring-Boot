@@ -1,30 +1,40 @@
+# Spring Boot Application
 
+## Description
 
-# Running SpringBoot Car Portal Application
+This repository contains a Spring Boot application designed to manage a system for meal orders and donations. The application features a range of functionalities including user management, role-based access control, and meal ordering. It provides a RESTful API and a web interface for users to interact with the system.
 
-#step 1
-CREATE SCHEMA `springboot_carportal_db` DEFAULT CHARACTER SET utf8 ;
+### Features
 
-#step 2
-Developed Entity & update application.prorperties
+- **User Management:** Users can register, log in, and manage their profiles. 
+- **Role-Based Access Control:** Differentiated access levels for administrators and regular users.
+- **Meal Ordering:** Users can browse available meals, place orders, and view order history.
+- **Donations:** Users can make donations to support meal services.
+- **Admin Dashboard:** Administrators can manage users, roles, and view system metrics.
 
-#step 3
-Run Springboot application & will create the tables in your database.
+### Technologies Used
 
-#step 4 - insert data into Role Table
-INSERT INTO `springboot_carportal_db`.`role` (`id`, `description`, `name`) VALUES ('1', 'for admin', 'Administrator');
-INSERT INTO `springboot_carportal_db`.`role` (`id`, `description`, `name`) VALUES ('2', 'for user', 'Users');
+- **Java:** Programming language used to build the application.
+- **Spring Boot:** Framework for creating stand-alone, production-grade Spring-based applications.
+- **MySQL:** Database for storing application data.
+- **JSP:** Technology used for rendering views in the web interface.
+- **Maven:** Build automation tool used for dependency management and project builds.
 
-#step 5 - Develop Repository for each entity
+## Prerequisites
 
-#step 6 - insert data into Car table and User Role Table
-INSERT INTO `springboot_carportal_db`.`car_user` (`id`, `name`, `password`, `user_name`) VALUES ('1', 'admin', 'admin', 'admin');
-INSERT INTO `springboot_carportal_db`.`user_role` (`user_id`, `role_id`) VALUES ('1', '1');
+To run and deploy this application, you will need:
 
+- **Java Development Kit (JDK) 11 or higher:** Required to build and run the application.
+- **Apache Maven:** Used for building and managing the application dependencies.
+- **MySQL Database:** Required for storing application data.
+- **Railway account (for deployment):** For deploying the application to the cloud.
 
-#step 7 - Developed Spring Security. 
+## Running Locally
 
-#step 8 - Developed the required controller, service classes and JSP pages based on your scenario.
+### Step 1: Clone the Repository
 
-#step 9 - Run as application & check On Browser
-http://localhost:8080/
+To get a copy of the application on your local machine, use the following commands:
+
+```bash
+git clone https://github.com/username/repository-name.git
+cd repository-name
