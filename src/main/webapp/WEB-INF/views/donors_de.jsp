@@ -12,7 +12,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resto - Restaurant Bootstrap 4 Template by GetTemplates.co</title>
+    <title>donors_details</title>
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -81,6 +81,65 @@
     animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation to navbar links */
 }
     
+/* Styling for the heading */
+        h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        /* For extra small devices like iPhone SE, Pixel 7 */
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+            .table th, .table td {
+                font-size: 0.75rem;
+                padding: 0.3rem;
+            }
+        }
+
+        /* For small devices like iPhone XR, iPhone 12 Pro, and Samsung Galaxy S8+ */
+        @media (min-width: 576px) and (max-width: 768px) {
+            h2 {
+                font-size: 1.75rem;
+            }
+            .table th, .table td {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+
+        /* For medium devices like iPad Mini, Surface Duo */
+        @media (min-width: 768px) and (max-width: 992px) {
+            h2 {
+                font-size: 2rem;
+            }
+            .table th, .table td {
+                font-size: 1rem;
+                padding: 0.75rem;
+            }
+        }
+
+        /* For larger devices like iPad Pro, Surface Pro 7 */
+        @media (min-width: 992px) {
+            h2 {
+                font-size: 2.25rem;
+            }
+            .table th, .table td {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+        }
+
+        /* Make sure table content scrolls horizontally on small screens */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        /* Ensure that the table stays full width and fits the screen on all devices */
+        .table {
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -316,64 +375,49 @@
 </nav>
                 
         
-   
-	<!-- First Container -->
-	<div class="container-fluid bg-1">
-		<div>
-			<h2 class="text-center">Donation Details </h2>
 
-			<div class="row">
+<!-- First Container -->
+<div class="container-fluid bg-1">
+    <div>
+        <h2 class="text-center">Donation Details</h2>
 
-				<div class="col-md-12">
-				
-					<c:if test="${not empty donation_detail}">
-					
-					<table class="table table-striped table-bordered">
-
-						<thead>
-							<tr>
-								<th>No.</th>
-								<th>User ID </th>
-								<th>Amount(USD) </th>
-								<th>Email </th>
-								<th>Message</th>
-								<th>Name </th>
-							
-						
-							</tr>
-						</thead>
-						
-						<tbody>
-						
-						<% int i=1; %>
-						<c:forEach var="user" items="${donation_detail}">
-						
-							<tr>
-								<td><%=i %></td>
-								<td>${user.id}</td>
-								<td>${user.amount}</td>
-								<td>${user.email}</td>
-								<td>${user.message}</td>
-								<td>${user.name}</td>
-						
-
-								
-							</tr>
-							<% i++; %>
-						</c:forEach>
-
-						</tbody>
-					</table>
-					
-					</c:if>
-					
-				</div>
-			</div>
-			
-			<!--  End User Lists  -->
-
-		</div>
-
+        <div class="row">
+            <div class="col-12">
+                <c:if test="${not empty donation_detail}">
+                    <!-- Responsive Table Wrapper -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>User ID</th>
+                                    <th>Amount (USD)</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% int i = 1; %>
+                                <c:forEach var="user" items="${donation_detail}">
+                                    <tr>
+                                        <td><%= i %></td>
+                                        <td>${user.id}</td>
+                                        <td>${user.amount}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.message}</td>
+                                        <td>${user.name}</td>
+                                    </tr>
+                                    <% i++; %>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </c:if>
+            </div>
+        </div>
+    </div>
+</div>
 	<!-- End of Welcome Section -->	
 		<footer class="mastfoot pb-5 bg-white section-padding pb-0">
     <div class="inner container">

@@ -16,7 +16,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resto - Restaurant Bootstrap 4 Template by GetTemplates.co</title>
+    <title>food management</title>
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,49 +45,100 @@
    
   
 <style>
-    /* Navbar style */
-.navbar {
-    background-color: #ffffff; /* Background color */
-    border-bottom: 1px solid #e3e3e3; /* Border color */
-    padding: 10px 20px; /* Padding */
-}
+	 /* Navbar style */
+	.navbar {
+	    background-color: #ffffff; /* Background color */
+	    border-bottom: 1px solid #e3e3e3; /* Border color */
+	    padding: 10px 20px; /* Padding */
+	}
 
-.navbar-brand img {
-    max-width: 100%; /* Make sure the logo fits inside the navbar */
-}
+	.navbar-brand img {
+	    max-width: 100%; /* Make sure the logo fits inside the navbar */
+	}
 
-.navbar-toggler {
-    border: none; /* Remove border from the toggler button */
-}
+	.navbar-toggler {
+	    border: none; /* Remove border from the toggler button */
+	}
 
-.navbar-nav .nav-item {
-    margin-right: 15px; /* Spacing between nav items */
-}
+	.navbar-nav .nav-item {
+	    margin-right: 15px; /* Spacing between nav items */
+	}
 
-.navbar-nav .nav-link {
-    color: #333333; /* Link color */
-    font-weight: bold; /* Bold font weight */
-    transition: color 0.3s; /* Smooth color transition */
-}
+	.navbar-nav .nav-link {
+	    color: #333333; /* Link color */
+	    font-weight: bold; /* Bold font weight */
+	    transition: color 0.3s; /* Smooth color transition */
+	}
 
-.navbar-nav .nav-link:hover {
-    color: #007bff; /* Hover color */
-}
+	.navbar-nav .nav-link:hover {
+	    color: #007bff; /* Hover color */
+	}
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+	/* Fade-in animation */
+	@keyframes fadeIn {
+	    0% {
+	        opacity: 0;
+	    }
+	    100% {
+	        opacity: 1;
+	    }
+	}
 
-.navbar-nav {
-    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation to navbar links */
-}
-    
+	.navbar-nav {
+	    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation to navbar links */
+	}
+	    
+	/* Styling for the heading */
+	      
+h2 {
+           margin-bottom: 30px;
+           font-size: 2rem;
+       }
+
+       /* Extra small devices (iPhone SE, Pixel 7) */
+       @media (max-width: 576px) {
+           h2 {
+               font-size: 1.5rem;
+           }
+           .card-body p {
+               font-size: 0.75rem;
+           }
+       }
+
+       /* Small devices (iPhone XR, iPhone 12 Pro, Samsung Galaxy S8+) */
+       @media (min-width: 576px) and (max-width: 768px) {
+           h2 {
+               font-size: 1.75rem;
+           }
+           .card-body p {
+               font-size: 0.9rem;
+           }
+       }
+
+       /* Medium devices (iPad Mini, Surface Duo) */
+       @media (min-width: 768px) and (max-width: 992px) {
+           h2 {
+               font-size: 2rem;
+           }
+           .card-body p {
+               font-size: 1rem;
+           }
+       }
+
+       /* Large devices (iPad Pro, Surface Pro 7) */
+       @media (min-width: 992px) {
+           h2 {
+               font-size: 2.25rem;
+           }
+           .card-body p {
+               font-size: 1.1rem;
+           }
+       }
+
+       .card-img-top {
+           object-fit: cover;
+           height: 200px;
+       }
     </style>
 </head>
 
@@ -350,79 +401,76 @@
 
 
 <!-- First Container -->
-	<div class="container-fluid bg-1">
-		<div>
-			<h2 class="text-center">Partner Details </h2>
+<div class="container-fluid bg-1">
+    <div>
+        <h2 class="text-center">Partner Details</h2>
 
-			<div class="row">
+        <div class="row">
 
-				<div class="col-md-12">
+            <div class="col-md-12">
+                <!-- Responsive card group -->
+                <div class="row">
 
-					<div class="card-group">
+                    <c:if test="${not empty Kit_View}">
 
-						<c:if test="${not empty Kit_View}">
+                        <%
+                        int i = 1;
+                        %>
+                        <c:forEach var="Kit_chens" items="${Kit_View}">
 
+                            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                                <div class="card h-100">
+                                    <img src="/images/${Kit_chens.meal_photo}" class="card-img-top" alt="${Kit_chens.meal_name}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${Kit_chens.price}</h5>
+                                        <p class="card-text">
+                                            <strong>Meal Name:</strong> ${Kit_chens.meal_name}<br>
+                                            <strong>Description:</strong> ${Kit_chens.description}<br>
+                                            <strong>Price:</strong> ${Kit_chens.price}
+                                        </p>
 
-							<%
-							int i = 1;
-							%>
-							<c:forEach var="Kit_chens" items="${Kit_View}">
+                                        <p class="card-text">
+                                            <small class="text-muted"> 
+                                                <sec:authorize access="hasRole('Administrator')">
+                                                    <a href="edit?id=${Kit_chens.id}">
+                                                        <button class="btn btn-info">Update</button>
+                                                    </a>
+                                                    <a href="delete?id=${Kit_chens.id}">
+                                                        <button class="btn btn-danger">Delete</button>
+                                                    </a>
+                                                </sec:authorize> 
+                                                <sec:authorize access="hasRole('Partner')">
+                                                    <a href="edit?id=${Kit_chens.id}">
+                                                        <button class="btn btn-info">Update</button>
+                                                    </a>
+                                                    <a href="delete?id=${Kit_chens.id}">
+                                                        <button class="btn btn-danger">Delete</button>
+                                                    </a>
+                                                </sec:authorize> 
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-								<div class="card">
-									<img src="/images/${Kit_chens.meal_photo}"  class="card-img-top">
-									<div class="card-body">
-										<h5 class="card-title">${Kit_chens.price}</h5>
-										<p class="card-text">
-										<p>Add Meal Name : ${Kit_chens.meal_name}</p>
-										<p>Add Description: ${Kit_chens.description}</p>
-										
-										<p>Add Meal Price:${Kit_chens.price}</p>
+                            <%
+                            i++;
+                            %>
+                        </c:forEach>
 
-										<p class="card-text">
-											<small class="text-muted"> 
-											<sec:authorize
-													access="hasRole('Administrator')">
-													<a href="edit?id=${Kit_chens.id}">
-														<button class="btn btn-info">Update</button>
-													</a>
-													<a href="delete?id=${Kit_chens.id}">
-														<button class="btn btn-danger">Delete</button>
-													</a>
-											</sec:authorize> 
-											<sec:authorize
-													access="hasRole('Partner')">
-													<a href="edit?id=${Kit_chens.id}">
-														<button class="btn btn-info">Update</button>
-													</a>
-													<a href="delete?id=${Kit_chens.id}">
-														<button class="btn btn-danger">Delete</button>
-													</a>
-											</sec:authorize> 
-												
-											</small>
-										</p>
-									</div>
-								</div>
+                    </c:if>
 
-								<%
-								i++;
-								%>
-							</c:forEach>
+                </div>
+                <!-- End of Card group -->
 
+            </div>
+        </div>
 
+        <!--  End Car Lists  -->
 
-						</c:if>
+    </div>
+</div>
 
-					</div>
-					<!-- End of Card -->
-
-				</div>
-			</div>
-
-			<!--  End Car Lists  -->
-
-		</div>
-	</div>
 	<!-- End of Welcome Section -->	
 		<footer class="mastfoot pb-5 bg-white section-padding pb-0">
     <div class="inner container">

@@ -12,7 +12,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resto - Restaurant Bootstrap 4 Template by GetTemplates.co</title>
+    <title>Order_details</title>
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -63,24 +63,72 @@
     transition: color 0.3s; /* Smooth color transition */
 }
 
-.navbar-nav .nav-link:hover {
-    color: #007bff; /* Hover color */
-}
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+/* Background for the container */
+       .bg-1 {
+           background-color: #f5f5f5;
+           padding: 40px 0;
+       }
 
-.navbar-nav {
-    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation to navbar links */
-}
-    
+       /* Styling for the heading */
+       h2 {
+           margin-bottom: 30px;
+           font-size: 2rem;
+       }
+
+       /* For small devices like iPhone SE and Pixel 7 */
+       @media (max-width: 576px) {
+           h2 {
+               font-size: 1.5rem;
+           }
+           .table th, .table td {
+               font-size: 0.8rem;
+               padding: 0.4rem;
+           }
+       }
+
+       /* For medium devices like iPhone XR, iPhone 12, and smaller tablets */
+       @media (min-width: 576px) and (max-width: 768px) {
+           h2 {
+               font-size: 1.75rem;
+           }
+           .table th, .table td {
+               font-size: 0.9rem;
+               padding: 0.6rem;
+           }
+       }
+
+       /* For larger devices like iPads, Surface Duo, and Samsung Galaxy */
+       @media (min-width: 768px) and (max-width: 992px) {
+           h2 {
+               font-size: 2rem;
+           }
+           .table th, .table td {
+               font-size: 1rem;
+               padding: 0.75rem;
+           }
+       }
+
+       /* For large devices like iPad Pro, Surface Pro, and laptops */
+       @media (min-width: 992px) {
+           h2 {
+               font-size: 2.25rem;
+           }
+           .table th, .table td {
+               font-size: 1.1rem;
+               padding: 1rem;
+           }
+       }
+
+       /* Make sure table content scrolls horizontally on small screens */
+       .table-responsive {
+           overflow-x: auto;
+       }
+
+       /* Ensure that the table stays full width and fits the screen on all devices */
+       .table {
+           width: 100%;
+       }
     </style>
 
 </head>
@@ -315,66 +363,50 @@
     </div>
 </nav>
                          
-        
-   
-	<!-- First Container -->
-	<div class="container-fluid bg-1">
-		<div>
-			<h2 class="text-center">Order Details</h2>
+<div class="container-fluid bg-1">
+        <div>
+            <h2 class="text-center">Order Details</h2>
 
-			<div class="row">
-
-				<div class="col-md-12">
-				
-					<c:if test="${not empty order_detail}">
-					
-					<table class="table table-striped table-bordered">
-
-						<thead>
-							<tr>
-								<th>No.</th>
-								<th>User ID </th>
-								<th>Name </th>
-								<th>Payment Method</th>
-								<th>Phone Number</th>
-								<th>Address</th>
-								<th>Quantity </th>
-							
-						
-							</tr>
-						</thead>
-						
-						<tbody>
-						
-						<% int i=1; %>
-						<c:forEach var="user" items="${order_detail}">
-						
-							<tr>
-								<td><%=i %></td>
-								<td>${user.id}</td>
-								<td>${user.name}</td>
-								<td>${user.paymentMethod}</td>
-								<td>${user.phoneNumber}</td>
-								<td>${user.address}</td>
-								<td>${user.quantity}</td>
-						
-
-								
-							</tr>
-							<% i++; %>
-						</c:forEach>
-
-						</tbody>
-					</table>
-					
-					</c:if>
-					
-				</div>
-			</div>
-			
-			<!--  End User Lists  -->
-
-		</div>
+            <div class="row">
+                <div class="col-12">
+                    <c:if test="${not empty order_detail}">
+                        <!-- Responsive Table Wrapper -->
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>User ID</th>
+                                        <th>Name</th>
+                                        <th>Payment Method</th>
+                                        <th>Phone Number</th>
+                                        <th>Address</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% int i = 1; %>
+                                    <c:forEach var="user" items="${order_detail}">
+                                        <tr>
+                                            <td><%= i %></td>
+                                            <td>${user.id}</td>
+                                            <td>${user.name}</td>
+                                            <td>${user.paymentMethod}</td>
+                                            <td>${user.phoneNumber}</td>
+                                            <td>${user.address}</td>
+                                            <td>${user.quantity}</td>
+                                        </tr>
+                                        <% i++; %>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </c:if>
+                </div>
+            </div>
+            <!--  End User Lists  -->
+        </div>
+    </div>
 
 	<!-- End of Welcome Section -->	
 		<footer class="mastfoot pb-5 bg-white section-padding pb-0">
@@ -439,7 +471,6 @@ Cold Meal: This category is available on all days of the week, and the service c
 </footer>
 	
 	
-
 	<!-- External JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>

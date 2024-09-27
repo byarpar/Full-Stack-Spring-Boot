@@ -1,30 +1,192 @@
-
-
-        .card {
-    width: 80%;
-    padding: 100px;
-    border-radius: 10px;
-    box-shadow: inset 8px 2px 20px 20px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+/* Base Styles */
+body {
+    background-image: url('img/delivery.jpg');
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+   
 }
 
-        .card h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
+.container {
+    padding: 100px;
+}
 
-        .card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
+.card {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        .card a {
-            color: #007bff;
-            text-decoration: none;
-        }
+.card-title {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
 
-        .card a:hover {
-            text-decoration: underline;
-        }
+.form-group {
+    margin-bottom: 20px;
+}
 
-      
+input.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #f34949
+    
+}
+
+/* Media Queries for Responsive Design */
+
+/* Extra Small Devices (Phones, 360px and below, iPhone SE) */
+@media (max-width: 360px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 50px 10px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.5em;
+    }
+
+    .navbar-brand img {
+        width: 100px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+    }
+}
+
+/* Small Devices (Phones, 375px and above, iPhone XR, Galaxy S8+) */
+@media (min-width: 375px) and (max-width: 576px) {
+    .container {
+        padding: 60px 15px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .card-title {
+        font-size: 1.7em;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+    }
+}
+
+/* Medium Devices (Tablets, iPads, Surface Duo, etc.) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        padding: 70px 20px;
+    }
+
+    .card {
+        padding: 30px;
+    }
+
+    .card-title {
+        font-size: 2em;
+    }
+
+    .navbar-nav {
+        justify-content: space-around;
+    }
+}
+
+/* Large Devices (iPad Pro, Surface Pro, etc.) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 80px 25px;
+    }
+
+    .card {
+        padding: 35px;
+    }
+
+    .card-title {
+        font-size: 2.2em;
+    }
+
+    .navbar-nav {
+        justify-content: space-around;
+    }
+}
+
+/* Extra Large Devices (Large desktops, iMac, etc.) */
+@media (min-width: 1025px) {
+    .container {
+        padding: 100px;
+    }
+
+    .card {
+        padding: 40px;
+    }
+
+    .card-title {
+        font-size: 2.5em;
+    }
+
+    .navbar-nav {
+        justify-content: center;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.footer-widget {
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    max-width: 150px;
+}
+
+.open-hours li {
+    margin-bottom: 10px;
+}
+
+.open-hours span {
+    font-size: 1em;
+}
+
+.open-hours .d-flex {
+    align-items: center;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter .form-control {
+    margin-bottom: 10px;
+}
+
+
+    

@@ -31,12 +31,83 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/style.css">
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     
-   
+	<style>
+	        /* Custom styles for responsiveness */
+	        .img-bg {
+	            background-size: cover;
+	            background-position: center;
+	            height: 300px;
+	        }
+
+	        .thumb-menu img {
+	            width: 100%;
+	            height: auto;
+	            border-radius: 8px;
+	        }
+
+	        .thumb-menu h6 {
+	            margin-top: 10px;
+	            font-size: 1rem;
+	            text-align: center;
+	        }
+
+	        @media (min-width: 576px) {
+	            .img-bg {
+	                height: 350px;
+	            }
+	        }
+
+	        @media (min-width: 768px) {
+	            .img-bg {
+	                height: 400px;
+	            }
+	        }
+
+	        @media (min-width: 992px) {
+	            .img-bg {
+	                height: 450px;
+	            }
+	        }
+
+	        @media (min-width: 1200px) {
+	            .img-bg {
+	                height: 500px;
+	            }
+	        }
+
+	        .section-padding {
+	            padding: 30px 15px;
+	        }
+
+	        @media (min-width: 576px) {
+	            .section-padding {
+	                padding: 50px 30px;
+	            }
+	        }
+
+	        @media (min-width: 768px) {
+	            .section-padding {
+	                padding: 70px 45px;
+	            }
+	        }
+
+	        @media (min-width: 992px) {
+	            .section-padding {
+	                padding: 90px 60px;
+	            }
+	        }
+
+	        @media (min-width: 1200px) {
+	            .section-padding {
+	                padding: 100px 75px;
+	            }
+	        }
+	    </style>
 
 </head>
 
@@ -72,53 +143,48 @@
     </div>
   
 </nav>
-            
 <section id="gtco-welcome" class="bg-white section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="row">
-                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/mm04.jpg);">
-                    
-                </div>
-                <div class="col-sm-7 py-5 pl-md-0 pl-4">
-                    <div class="heading-section pl-lg-5 ml-md-5">
-                        <span class="subheading">
-                            About
-                        </span>
-                        <h2>
-                           Welcome to Meals On Wheels
-                        </h2>
+        <div class="container">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-5 img-bg d-flex shadow align-items-center justify-content-center" style="background-image: url(img/mm04.jpg);">
+                        <!-- Optional content for the image column -->
                     </div>
-                    <div class="pl-lg-5 ml-md-5">
-                        <p>As a leading enterprise solution provider, Unity One Solutions places a strong emphasis on understanding and meeting the needs of our diverse clientele. Our customers come from various industries and sectors, ranging from small businesses to large corporations, government agencies, and non-profit organizations.</p>
-                        <h3 class="mt-5">OUR FOCUS</h3>
-                        <div class="row">
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/mm05.jpg" />
-                                    <h6>Satisfaction </br>and </br>Convenience</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/mm06.jpg" />
-                                    <h6>Health </br>and</br> Well-being</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/mm07.jpg"/>
-                                    <h6>Dignity </br>and </br>Respect</h6>
-                                </a>
+                    <div class="col-md-7 py-5">
+                        <div class="heading-section pl-lg-5 ml-md-5">
+                            <span class="subheading">About</span>
+                            <h2>Welcome to Meals On Wheels</h2>
+                        </div>
+                        <div class="pl-lg-5 ml-md-5">
+                            <p>As a leading enterprise solution provider, Unity One Solutions places a strong emphasis on understanding and meeting the needs of our diverse clientele. Our customers come from various industries and sectors, ranging from small businesses to large corporations, government agencies, and non-profit organizations.</p>
+                            <h3 class="mt-5">OUR FOCUS</h3>
+                            <div class="row">
+                                <div class="col-12 col-sm-4 mb-4">
+                                    <a href="#" class="thumb-menu">
+                                        <img class="img-fluid img-cover" src="img/mm05.jpg" alt="Satisfaction and Convenience"/>
+                                  
+										<h6 style="color: red;">Satisfaction<br>and<br>Convenience</h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4">
+                                    <a href="#" class="thumb-menu">
+                                        <img class="img-fluid img-cover" src="img/mm06.jpg" alt="Health and Well-being"/>
+                                        <h6 style="color: red;">Health<br>and<br>Well-being</h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4">
+                                    <a href="#" class="thumb-menu">
+                                        <img class="img-fluid img-cover" src="img/mm07.jpg" alt="Dignity and Respect"/>
+                                        <h6 style="color: red;">Dignity<br>and<br>Respect</h6>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 	<!-- End of Welcome Section -->	
 		<footer class="mastfoot pb-5 bg-white section-padding pb-0">
     <div class="inner container">

@@ -38,49 +38,112 @@
     
     <script src="/js/custom.js"></script>
     <style>
-    /* Navbar style */
-.navbar {
-    background-color: #ffffff; /* Background color */
-    border-bottom: 1px solid #e3e3e3; /* Border color */
-    padding: 10px 20px; /* Padding */
-}
+		 /* Navbar style */
+		.navbar {
+		    background-color: #ffffff; /* Background color */
+		    border-bottom: 1px solid #e3e3e3; /* Border color */
+		    padding: 10px 20px; /* Padding */
+		}
 
-.navbar-brand img {
-    max-width: 100%; /* Make sure the logo fits inside the navbar */
-}
+		.navbar-brand img {
+		    max-width: 100%; /* Make sure the logo fits inside the navbar */
+		}
 
-.navbar-toggler {
-    border: none; /* Remove border from the toggler button */
-}
+		.navbar-toggler {
+		    border: none; /* Remove border from the toggler button */
+		}
 
-.navbar-nav .nav-item {
-    margin-right: 15px; /* Spacing between nav items */
-}
+		.navbar-nav .nav-item {
+		    margin-right: 15px; /* Spacing between nav items */
+		}
 
-.navbar-nav .nav-link {
-    color: #333333; /* Link color */
-    font-weight: bold; /* Bold font weight */
-    transition: color 0.3s; /* Smooth color transition */
-}
+		.navbar-nav .nav-link {
+		    color: #333333; /* Link color */
+		    font-weight: bold; /* Bold font weight */
+		    transition: color 0.3s; /* Smooth color transition */
+		}
 
-.navbar-nav .nav-link:hover {
-    color: #007bff; /* Hover color */
-}
+		.navbar-nav .nav-link:hover {
+		    color: #007bff; /* Hover color */
+		}
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+		/* Fade-in animation */
+		@keyframes fadeIn {
+		    0% {
+		        opacity: 0;
+		    }
+		    100% {
+		        opacity: 1;
+		    }
+		}
 
-.navbar-nav {
-    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation to navbar links */
-}
-    
+		.navbar-nav {
+		    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation to navbar links */
+		}
+		    
+		/* Styling for the heading */
+		      
+		
+
+		/* Styling for the heading */
+		       h2 {
+		           margin-bottom: 30px;
+		           font-size: 2rem;
+		       }
+
+		       /* For extra small devices like iPhone SE, Pixel 7 */
+		       @media (max-width: 576px) {
+		           h2 {
+		               font-size: 1.5rem;
+		           }
+		           .table th, .table td {
+		               font-size: 0.75rem;
+		               padding: 0.3rem;
+		           }
+		       }
+
+		       /* For small devices like iPhone XR, iPhone 12, and Samsung Galaxy S8+ */
+		       @media (min-width: 576px) and (max-width: 768px) {
+		           h2 {
+		               font-size: 1.75rem;
+		           }
+		           .table th, .table td {
+		               font-size: 0.9rem;
+		               padding: 0.5rem;
+		           }
+		       }
+
+		       /* For medium devices like iPad Mini, Surface Duo */
+		       @media (min-width: 768px) and (max-width: 992px) {
+		           h2 {
+		               font-size: 2rem;
+		           }
+		           .table th, .table td {
+		               font-size: 1rem;
+		               padding: 0.75rem;
+		           }
+		       }
+
+		       /* For larger devices like iPad Pro, Surface Pro 7 */
+		       @media (min-width: 992px) {
+		           h2 {
+		               font-size: 2.25rem;
+		           }
+		           .table th, .table td {
+		               font-size: 1.1rem;
+		               padding: 1rem;
+		           }
+		       }
+
+		       /* Make sure table content scrolls horizontally on small screens */
+		       .table-responsive {
+		           overflow-x: auto;
+		       }
+
+		       /* Ensure that the table stays full width and fits the screen on all devices */
+		       .table {
+		           width: 100%;
+		       } 
     </style>
 
 </head>
@@ -312,66 +375,52 @@
     </div>
 </nav>
             
-           
-        
-   
-	<!-- First Container -->
-	<div class="container-fluid bg-1">
-		<div>
-			<h2 class="text-center">Member Details</h2>
 
-			<div class="row">
+<!-- First Container -->
+<div class="container-fluid bg-1">
+    <div>
+        <h2 class="text-center">Member Details</h2>
 
-				<div class="col-md-12">
-				
-					<c:if test="${not empty userlists}">
-					
-					<table class="table table-striped table-bordered">
+        <div class="row">
+            <div class="col-12">
+                <c:if test="${not empty userlists}">
+                    <!-- Responsive Table Wrapper -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>User ID</th>
+                                    <th>Location</th>
+                                    <th>Email</th>
+                                    <th>Member Type</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% int i = 1; %>
+                                <c:forEach var="user" items="${userlists}">
+                                    <tr>
+                                        <td><%= i %></td>
+                                        <td>${user.id}</td>
+                                        <td>${user.location}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.memberType}</td>
+                                        <td>${user.userName}</td>
+                                        <td>******</td>
+                                    </tr>
+                                    <% i++; %>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </c:if>
+            </div>
+        </div>
+    </div>
+</div>
 
-						<thead>
-							<tr>
-								<th>No.</th>
-								<th>User ID </th>
-								<th>Location </th>
-								<th>Email </th>
-								<th>Member_Type</th>
-								<th>User Name </th>
-							
-								<th>Password</th>
-							</tr>
-						</thead>
-						
-						<tbody>
-						
-						<% int i=1; %>
-						<c:forEach var="user" items="${userlists}">
-						
-							<tr>
-								<td><%=i %></td>
-								<td>${user.id}</td>
-								<td>${user.location}</td>
-								<td>${user.email}</td>
-								<td>${user.memberType}</td>
-								<td>${user.userName}</td>
-								
-								<td>******</td>
-
-							</tr>
-							<% i++; %>
-						</c:forEach>
-
-						</tbody>
-					</table>
-					
-					</c:if>
-					
-				</div>
-			</div>
-			
-			<!--  End User Lists  -->
-
-		</div>
-	</div>
 	
 	<!-- End of Welcome Section -->	
 		<footer class="mastfoot pb-5 bg-white section-padding pb-0">
