@@ -2,8 +2,7 @@
 
 ## Description
 
-This repository contains a Spring Boot application designed to manage a system for meal orders and donations. The application features a range of functionalities including user management, role-based access control, and meal ordering. It provides a RESTful API and a web interface for users to interact with the system.
-
+This repository contains a Spring Boot application designed to manage a system for meal orders and donations. The application features a range of functionalities including user management, role-based access control, and meal ordering. 
 ### Features
 
 - **User Management:** Users can register, log in, and manage their profiles. 
